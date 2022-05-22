@@ -92,7 +92,8 @@ document.getElementById("download").addEventListener("click", (event) => {
   document.querySelectorAll(".box").forEach((item) => {
     domtoimage.toJpeg(item, { quality: 0.95 }).then(function (dataUrl) {
       var link = document.createElement("a");
-      link.download = signs[i] + "_" + file_date + ".jpeg";
+	  //link.download = signs[i] + "_" + file_date + ".jpeg";
+      link.download = "гороскоп_"+ i + "_" + file_date + ".jpeg";
       link.href = dataUrl;
       link.click();
       i++;
