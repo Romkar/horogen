@@ -1,0 +1,63 @@
+.scroller {
+  overflow-x: scroll;
+}
+
+.box {
+  min-width: 1100px;
+  max-width: 1100px;
+
+  min-height: 1600px;
+  max-height: 1600px;
+
+  border-style: solid;
+  border-width: 2px;
+  /* margin: 20px; */
+  padding: 30px;
+
+  /* background-color: grey; */
+
+  background-image: url(https://images.unsplash.com/photo-1435224654926-ecc9f7fa028c?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000);
+}
+
+.horo-text {
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 30px;
+  margin: 30px; /* 50 */
+  padding: 30px;
+
+  height: 75%;
+
+  font-size: 30pt;
+
+  background-color: white;
+  text-align: center;
+}
+
+header {
+  text-align: center;
+}
+
+.head-text {
+  color: white;
+  text-align: center;
+  /* margin: 30px; */
+  margin-top: 30px;
+}
+
+.head-text-1 {
+  font-size: 80pt;
+  margin: 0px;
+}
+
+.head-text-2 {
+  font-size: 55pt;
+  margin: -30px;
+}
+
+.range {
+  min-width: 1100px;
+  max-width: 1100px;
+
+  margin-left: 20px;
+}

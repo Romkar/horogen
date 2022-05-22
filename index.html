@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - horo-editor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/picnic/7.1.0/picnic.min.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="tabs two">
+  <input id='tab-1' type='radio' name='tabgroup' checked>
+  <label class="pseudo button toggle" for="tab-1">Содержимое</label>
+  <input id='tab-2' type='radio' name='tabgroup' checked>
+  <label class="pseudo button toggle" for="tab-2">Результат</label>
+  <div class="row">
+
+    <div>
+      <!-- Вкладка содержимого (начало) -->
+      <article class="card">
+        <header>
+          <h3>Содержимое</h3>
+        </header>
+
+        <p>
+          <label>Дата<input type="date" id="get_date">
+            <span id="date"></span>
+          </label>
+        </p>
+        <p>
+          <label>Овны</label>
+          <textarea id="horo-in-1"></textarea>
+        </p>
+        <p>
+          <label>Тельцы</label>
+          <textarea id="horo-in-2"></textarea>
+        </p>
+        <p>
+          <label>Близнецы</label>
+          <textarea id="horo-in-3"></textarea>
+        </p>
+        <p>
+          <label>Раки</label>
+          <textarea id="horo-in-4"></textarea>
+        </p>
+        <p>
+          <label>Львы</label>
+          <textarea id="horo-in-5"></textarea>
+        </p>
+        <p>
+          <label>Девы</label>
+          <textarea id="horo-in-6"></textarea>
+        </p>
+        <p>
+          <label>Весы</label>
+          <textarea id="horo-in-7"></textarea>
+        </p>
+        <p>
+          <label>Скорпионы</label>
+          <textarea id="horo-in-8"></textarea>
+        </p>
+        <p>
+          <label>Стрельцы</label>
+          <textarea id="horo-in-9"></textarea>
+        </p>
+        <p>
+          <label>Козероги</label>
+          <textarea id="horo-in-10"></textarea>
+        </p>
+        <p>
+          <label>Водолеи</label>
+          <textarea id="horo-in-11"></textarea>
+        </p>
+        <p>
+          <label>Рыбы</label>
+          <textarea id="horo-in-12"></textarea>
+        </p>
+
+      </article>
+      <!-- Вкладка содержимого (конец) -->
+    </div>
+
+    <div>
+      <!-- Вкладка результата (начало) -->
+      <header>
+        <h3>Результат</h3><button class='success' id="download">Скачать 📥</button>
+      </header>
+      <div class="flex two scroller">
+        <div class="box">
+          <div class="head-text">
+            <p class="head-text-1"><label>♈ Овны</label></p>
+            <p class="head-text-2"><label id="ht2-date">дата</label></p>
+          </div>
+          <div class="horo-text" id="horo-out-1" contenteditable="true">
+          </div>
+        </div>
+        <p class="range"><label for="font-size-1" id="font-size-val-1"></label><input type="range" id="font-size-1" name="font-size-1" min="25" max="80" value="30">
+        </p>
+
+        <div class="box">
+          <div class="head-text">
+            <p class="head-text-1"><label>♉ Тельцы</label></p>
+            <p class="head-text-2"><label id="ht2-date">дата</label></p>
+          </div>
+          <div class="horo-text" id="horo-out-2" contenteditable="true">
+          </div>
+        </div>
+        <p class="range"><label for="font-size-2" id="font-size-val-2"></label><input type="range" id="font-size-2" name="font-size-2" min="25" max="80" value="30">
+        </p>
+
+        <div class="box">
+          <div class="head-text">
+            <p class="head-text-1"><label>♊ Близнецы</label></p>
+            <p class="head-text-2"><label id="ht2-date">дата</label></p>
+          </div>
+          <div class="horo-text" id="horo-out-3" contenteditable="true">
+          </div>
+        </div>
+        <p class="range"><label for="font-size-3" id="font-size-val-3"></label><input type="range" id="font-size-3" name="font-size-3" min="25" max="80" value="30">
+        </p>
+
+        <div class="box">
+          <div class="head-text">
+            <p class="head-text-1"><label>♋ Раки</label></p>
+            <p class="head-text-2"><label id="ht2-date">дата</label></p>
+          </div>
+          <div class="horo-text" id="horo-out-4" contenteditable="true">
+          </div>
+        </div>
+        <p class="range"><label for="font-size-4" id="font-size-val-4"></label><input type="range" id="font-size-4" name="font-size-4" min="25" max="80" value="30">
+        </p>
+
+        <div class="box">
+          <div class="head-text">
+            <p class="head-text-1"><label>♌ Львы</label></p>
+            <p class="head-text-2"><label id="ht2-date">дата</label></p>
+          </div>
+          <div class="horo-text" id="horo-out-5" contenteditable="true">
+          </div>
+        </div>
+        <p class="range"><label for="font-size-5" id="font-size-val-5"></label><input type="range" id="font-size-5" name="font-size-5" min="25" max="80" value="30">
+        </p>
+
+        <div class="box">
+          <div class="head-text">
+            <p class="head-text-1"><label>♍ Девы</label></p>
+            <p class="head-text-2"><label id="ht2-date">дата</label></p>
+          </div>
+          <div class="horo-text" id="horo-out-6" contenteditable="true">
+          </div>
+        </div>
+        <p class="range"><label for="font-size-6" id="font-size-val-6"></label><input type="range" id="font-size-6" name="font-size-6" min="25" max="80" value="30">
+        </p>
+
+        <div class="box">
+          <div class="head-text">
+            <p class="head-text-1"><label>♎ Весы</label></p>
+            <p class="head-text-2"><label id="ht2-date">дата</label></p>
+          </div>
+          <div class="horo-text" id="horo-out-7" contenteditable="true">
+          </div>
+        </div>
+        <p class="range"><label for="font-size-7" id="font-size-val-7"></label><input type="range" id="font-size-7" name="font-size-7" min="25" max="80" value="30">
+        </p>
+
+        <div class="box">
+          <div class="head-text">
+            <p class="head-text-1"><label>♏ Скорпионы</label></p>
+            <p class="head-text-2"><label id="ht2-date">дата</label></p>
+          </div>
+          <div class="horo-text" id="horo-out-8" contenteditable="true">
+          </div>
+        </div>
+        <p class="range"><label for="font-size-8" id="font-size-val-8"></label><input type="range" id="font-size-8" name="font-size-8" min="25" max="80" value="30">
+        </p>
+
+        <div class="box">
+          <div class="head-text">
+            <p class="head-text-1"><label>♐ Стрельцы</label></p>
+            <p class="head-text-2"><label id="ht2-date">дата</label></p>
+          </div>
+          <div class="horo-text" id="horo-out-9" contenteditable="true">
+          </div>
+        </div>
+        <p class="range"><label for="font-size-9" id="font-size-val-9"></label><input type="range" id="font-size-9" name="font-size-9" min="25" max="80" value="30">
+        </p>
+
+        <div class="box">
+          <div class="head-text">
+            <p class="head-text-1"><label>♑ Козероги</label></p>
+            <p class="head-text-2"><label id="ht2-date">дата</label></p>
+          </div>
+          <div class="horo-text" id="horo-out-10" contenteditable="true">
+          </div>
+        </div>
+        <p class="range"><label for="font-size-10" id="font-size-val-10"></label><input type="range" id="font-size-10" name="font-size-10" min="25" max="80" value="30">
+        </p>
+
+        <div class="box">
+          <div class="head-text">
+            <p class="head-text-1"><label>♒ Водолеи</label></p>
+            <p class="head-text-2"><label id="ht2-date">дата</label></p>
+          </div>
+          <div class="horo-text" id="horo-out-11" contenteditable="true">
+          </div>
+        </div>
+        <p class="range"><label for="font-size-11" id="font-size-val-11"></label><input type="range" id="font-size-11" name="font-size-11" min="25" max="80" value="30">
+        </p>
+
+        <div class="box">
+          <div class="head-text">
+            <p class="head-text-1"><label>♓ Рыбы</label></p>
+            <p class="head-text-2"><label id="ht2-date">дата</label></p>
+          </div>
+          <div class="horo-text" id="horo-out-12" contenteditable="true">
+          </div>
+        </div>
+        <p class="range"><label for="font-size-12" id="font-size-val-12"></label><input type="range" id="font-size-12" name="font-size-12" min="25" max="80" value="30">
+        </p>
+
+      </div>
+      <!-- Вкладка результата (конец) -->
+    </div>
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment-with-locales.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
