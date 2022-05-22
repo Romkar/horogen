@@ -19,6 +19,15 @@
   background-image: url(https://images.unsplash.com/photo-1435224654926-ecc9f7fa028c?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000);
 }
 
+@font-face {
+    font-family: 'LumberjackRough';
+    src: url('fonts/LumberjackRough.woff2') format('woff2'),
+        url('fonts/LumberjackRough.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 .horo-text {
   border-style: solid;
   border-width: 2px;
@@ -32,6 +41,10 @@
 
   background-color: white;
   text-align: center;
+  
+	font-family: 'LumberjackRough';
+	font-weight: normal;
+	font-style: normal;
 }
 
 header {
