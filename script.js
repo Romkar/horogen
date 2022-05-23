@@ -89,16 +89,19 @@ document.getElementById("download").addEventListener("click", (event) => {
   
   file_date = moment(document.getElementById("get_date").value).format("L");
 
-  i = 0;
-  document.querySelectorAll(".box").forEach((item) => {
-    domtoimage.toJpeg(item, { quality: 0.95 }).then(function (dataUrl) {
-      var link = document.createElement("a");
-      link.download = (i+1) + "_" + signs[i] + "_" + file_date + ".jpeg";
-      link.href = dataUrl;
-      link.click();
-      i++;
-    });
-  });
+  async function download_images() {
+    for (var i = 1; i < 13; i++) {
+      item = document.getElementById("box"+i);
+      await domtoimage.toJpeg(item, { quality: 0.95 }).then(function (dataUrl) {
+        var link = document.createElement("a");
+        link.download = i + "_" + signs[i-1] + "_" + file_date + ".jpeg";
+        link.href = dataUrl;
+        link.click();
+      });
+    }
+  }
+
+  download_images();
   
   
 });// end addEventListener click
