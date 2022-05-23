@@ -86,17 +86,19 @@ document.getElementById("download").addEventListener("click", (event) => {
     "Водолеи",
     "Рыбы"
   ];
-  i = 0;
+  
   file_date = moment(document.getElementById("get_date").value).format("L");
 
+  i = 0;
   document.querySelectorAll(".box").forEach((item) => {
     domtoimage.toJpeg(item, { quality: 0.95 }).then(function (dataUrl) {
       var link = document.createElement("a");
-	  //link.download = signs[i] + "_" + file_date + ".jpeg";
-      link.download = "гороскоп_"+ i + "_" + file_date + ".jpeg";
+      link.download = (i+1) + "_" + signs[i] + "_" + file_date + ".jpeg";
       link.href = dataUrl;
       link.click();
       i++;
     });
   });
-});
+  
+  
+});// end addEventListener click
