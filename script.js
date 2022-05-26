@@ -124,7 +124,14 @@ document.getElementById("download").addEventListener("click", (event) => {
       item = document.getElementById("box"+i);
       await domtoimage.toJpeg(item, { quality: 0.95 }).then(function (dataUrl) {
         var link = document.createElement("a");
-        link.download = i + "_" + signs[i-1] + "_" + file_date + ".jpeg";
+		
+		if(i < 10){
+			n = "0" + i;
+		}else{
+			n = i;
+		}
+		
+        link.download = n + "_" + signs[i-1] + "_" + file_date + ".jpeg";
         link.href = dataUrl;
         link.click();
       });
@@ -158,3 +165,28 @@ document.getElementById("delete").addEventListener("click", (event) => {
 		getdate.dispatchEvent(new Event("change", { bubbles: true }));
 	}
 });// end addEventListener click
+//------------------------------------------------------------------
+// выбор фона карточек
+
+function toggle(el,classname){
+	if(el.classList.contains(classname)){
+		el.classList.remove(classname);
+	}
+	else{
+		el.classList.add(classname);
+	}
+};
+
+document.querySelectorAll(".dropdown").forEach((item) => {
+	item.addEventListener('click',(e)=>{		
+		toggle( document.getElementById("background-list") ,'dropdown-content-visible');
+	});
+});
+
+document.querySelectorAll(".dropdown-selected").forEach((item) => {
+	item.addEventListener('click',(e)=>{		
+     document.querySelectorAll(".box").forEach((item2) => {
+      item2.style.backgroundImage = "url('" + item.src + "')";
+    });
+	});
+});
