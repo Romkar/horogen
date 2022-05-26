@@ -108,7 +108,7 @@ header {
 }
 
 .dropdown-content-visible {
-  display: block;
+  display: block ruby;
 }
 
 .dropdown-selected{

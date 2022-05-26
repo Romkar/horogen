@@ -1,4 +1,4 @@
-// чтение из локального хранилища сразк после загрузки страницы
+// чтение из локального хранилища сразу после загрузки страницы
 document.addEventListener("DOMContentLoaded", function(event) { 
   for (var i = 1; i < 13; i++) {
 	document.getElementById("horo-out-" + i).innerText = localStorage.getItem("horo-out-" + i);
@@ -12,6 +12,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	getdate = document.getElementById("get_date");
 	getdate.value = localStorage.getItem("get_date");
 	getdate.dispatchEvent(new Event("change", { bubbles: true }));
+	
+	document.querySelectorAll(".box").forEach((item2) => {
+		if(localStorage.getItem("box_backgroundImage") != ""){
+			item2.style.backgroundImage = localStorage.getItem("box_backgroundImage");
+		}
+	});
 });
 
 //===============================================
@@ -99,6 +105,13 @@ document.querySelectorAll("div, input").forEach((item) => {
     }
   }); // end addEventListener
 }); // end querySelectorAll forEach
+
+//------------------------------------------------------------------
+// функция задержки (нужна для скачивания файлов в правильном порядке, 
+// важно при сортировке файлов по дате изменения/создания)
+function delay(time) {
+  return new Promise(resolve => setTimeout(resolve, time));
+}
 //------------------------------------------------------------------
 // выгрузка всех карточек в файлы
 document.getElementById("download").addEventListener("click", (event) => {
@@ -135,6 +148,7 @@ document.getElementById("download").addEventListener("click", (event) => {
         link.href = dataUrl;
         link.click();
       });
+	  await delay(1000);
     }
   }
 
@@ -163,6 +177,8 @@ document.getElementById("delete").addEventListener("click", (event) => {
 		getdate.value = "";
 		localStorage.setItem("get_date", "");
 		getdate.dispatchEvent(new Event("change", { bubbles: true }));
+		
+		localStorage.setItem("box_backgroundImage", "");
 	}
 });// end addEventListener click
 //------------------------------------------------------------------
@@ -185,8 +201,18 @@ document.querySelectorAll(".dropdown").forEach((item) => {
 
 document.querySelectorAll(".dropdown-selected").forEach((item) => {
 	item.addEventListener('click',(e)=>{		
-     document.querySelectorAll(".box").forEach((item2) => {
-      item2.style.backgroundImage = "url('" + item.src + "')";
-    });
+		document.querySelectorAll(".box").forEach((item2) => {
+			item2.style.backgroundImage = "url('" + item.src + "')";
+		});
+		localStorage.setItem("box_backgroundImage", "url('" + item.src + "')");
 	});
+});
+//------------------------------------------------------------------
+// выбор цвета заголовка и даты
+
+document.querySelector("#get_color").addEventListener('change',(e)=>{
+	document.querySelectorAll(".head-text").forEach((item) => {
+		item.style.color = e.target.value;
+	});
+	localStorage.setItem("head-text_color", e.target.value);
 });
