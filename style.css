@@ -3,11 +3,11 @@
 }
 
 .box {
-  min-width: 1100px;
-  max-width: 1100px;
+  min-width: 1000px;
+  max-width: 1000px;
 
-  min-height: 1600px;
-  max-height: 1600px;
+  min-height: 1450px;
+  max-height: 1450px;
 
   border-style: solid;
   border-width: 2px;
@@ -66,13 +66,13 @@ header {
 }
 
 .head-text-2 {
-  font-size: 55pt;
+  font-size: 50pt;
   margin: -30px;
 }
 
 .range {
-  min-width: 1100px;
-  max-width: 1100px;
+  min-width: 960px;
+  max-width: 960px;
 
   margin-left: 20px;
 }
@@ -108,7 +108,7 @@ header {
 }
 
 .dropdown-content-visible {
-  display: block ruby;
+  display: block;
 }
 
 .dropdown-selected{
