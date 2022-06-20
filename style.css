@@ -37,7 +37,7 @@
   margin: 30px; /* 50 */
   padding: 30px;
 
-  height: 75%;
+  height: 70%;
 
   font-size: 30pt;
 
@@ -47,6 +47,8 @@
 	font-family: 'LumberjackRough';
 	font-weight: normal;
 	font-style: normal;
+
+  /* margin-bottom: 0px; */
 }
 
 header {
@@ -70,6 +72,11 @@ header {
   margin: -30px;
 }
 
+.box-footer p{
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
 .range {
   min-width: 960px;
   max-width: 960px;
@@ -83,7 +90,7 @@ header {
   position: relative;
   display: inline-block;
 
-  margin-left: 14px;
+  margin-left: 32px;
 }
 
 .dropdown-content {
