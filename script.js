@@ -107,20 +107,39 @@ document.querySelectorAll("div, input").forEach((item) => {
     // изменение размера шрифта для карточек
     for (var i = 1; i < 13; i++) {
       if (event.target.id == "font-size-" + i) {
-        document.getElementById("horo-out-" + i).style.fontSize =
-          event.target.value + "pt";
-        document.getElementById("font-size-val-" + i).innerText =
-          event.target.value;
-
-        localStorage.setItem("font-size-" + i, event.target.value);
+        delay_font_set(i, event);
       }
     }
   }); // end addEventListener
 }); // end querySelectorAll forEach
 
+//-----------------------
+// изменение размера текста на карточке с задержкой, для события touchmove (см. ниже)
+async function delay_font_set(i, event) {
+  await delay(100).then(() => {
+    document.getElementById("horo-out-" + i).style.fontSize =
+      event.target.value + "pt";
+    document.getElementById("font-size-val-" + i).innerText =
+      event.target.value;
+    localStorage.setItem("font-size-" + i, event.target.value);
+  });
+}
+
+//-----------------------
+// обработка события прокрутки страницы на сенсорном экране, нужна для предотвращения случайного перескакивания бегунка
+// размера текста при его касании во время скрола пальцем.
+//
+// Работает так: при прокрутке страницы на сенсорном экране палец цепляет бегунок размера текста, срабатывае событие
+// input и изменяется значение на бегунке, далее срабатывает событие touchmove, которое возвращает на бегунке предыдущее.
+// значение из localStorage. Запись нового значения бегунка сохраняется в localStorage с задержкой чтобы не успеть перезаписать
+// его на новое во время события touchmove.
+
+document.addEventListener("touchmove", function (event) {
+  event.target.value = localStorage.getItem(event.target.name);
+});
+
 //------------------------------------------------------------------
-// функция задержки (нужна для скачивания файлов в правильном порядке,
-// важно при сортировке файлов по дате изменения/создания)
+// функция задержки
 function delay(time) {
   return new Promise((resolve) => setTimeout(resolve, time));
 }
@@ -160,7 +179,7 @@ document.getElementById("download").addEventListener("click", (event) => {
         link.href = dataUrl;
         link.click();
       });
-      await delay(1000);
+      await delay(300); //задержка нужна для скачивания файлов в правильном порядке, важно при сортировке файлов по дате изменения/создания)
     }
   }
 
