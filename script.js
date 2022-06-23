@@ -135,7 +135,9 @@ async function delay_font_set(i, event) {
 // его на новое во время события touchmove.
 
 document.addEventListener("touchmove", function (event) {
-  event.target.value = localStorage.getItem(event.target.name);
+  if (event.target.type == "range") {
+    event.target.value = localStorage.getItem(event.target.name);
+  }
 });
 
 //------------------------------------------------------------------
