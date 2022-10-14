@@ -41,7 +41,7 @@
 
   font-size: 30pt;
 
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.8);
   text-align: center;
   
 	font-family: 'LumberjackRough';
@@ -116,7 +116,7 @@ header {
 }
 
 .dropdown-content-visible {
-  display: block;
+  display: block ruby;
 }
 
 .dropdown-selected{
